@@ -1,0 +1,915 @@
+@charset "utf-8";
+
+body {
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  background: #e5e0d9;
+}
+.wrap {
+  overflow: hidden;
+}
+/*navの共通部分*/
+header {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  background: #efeeec;
+  z-index: 900;
+  display: flex;
+  justify-content: space-between;
+}
+.h1logo {
+  padding: 10px 10px;
+}
+.h1logo img,
+.main_logo img {
+  width: 216px;
+  height: 69px;
+}
+.btn_design {
+  display: flex;
+  position: relative;
+  z-index: 999;
+  cursor: pointer;
+}
+.header_nav {
+  background: #2e5c4a;
+  position: fixed;
+  width: 280px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: all 0.5s;
+  z-index: 998;
+}
+.navOpen .header_nav {
+  transform: translateX(0);
+}
+.nav_hamburger {
+  display: block;
+  border-bottom: 1px solid #fff;
+  padding-top: 100px;
+}
+.nav_hamburger a {
+  display: block;
+  color: #fff;
+  padding: 2em;
+}
+.nav_hamburger a span:hover {
+  border-bottom: 1px solid;
+}
+.border {
+  border-top: 1px solid #fff;
+}
+.buy_btn {
+  height: 100px;
+  width: 140px;
+  background: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+.buy_btn a {
+  color: #2e5c4a;
+  font-size: 2rem;
+}
+.menu_btn {
+  height: 100px;
+  width: 140px;
+  background: #2e5c4a;
+  color: #fff;
+  transition: all 0.5s;
+  position: relative;
+}
+.menu_btn span {
+  position: absolute;
+  display: inline-block;
+  left: 40px;
+  height: 2px;
+  border-radius: 5px;
+  background: #fff;
+  width: 45%;
+  text-align: center;
+  margin: 0 auto;
+  transition: all 0.5s;
+}
+.menu_btn span:nth-of-type(1) {
+  top: 20px;
+}
+.menu_btn span:nth-of-type(2) {
+  top: 34px;
+}
+.menu_btn span:nth-of-type(3) {
+  top: 48px;
+}
+.menu_btn span:nth-of-type(3)::after {
+  content: "Menu";
+  position: absolute;
+  top: 10px;
+  left: 2px;
+  color: #fff;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.menu_btn.active span:nth-of-type(1) {
+  top: 26px;
+  left: 40px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 40%;
+}
+.menu_btn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.menu_btn.active span:nth-of-type(3) {
+  top: 38px;
+  left: 40px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 40%;
+}
+.menu_btn.active span:nth-of-type(3)::after {
+  content: "Close";
+  transform: translateY(0) rotate(-45deg);
+  top: 17px;
+  right: -55px;
+}
+
+/*共通タイトルページ*/
+.product_titlebox,
+.event_titlebox,
+.contact_titlebox {
+  padding-top: 300px;
+  margin: 0 auto;
+}
+.product_titlebox::before {
+  content: "";
+  display: inline-block;
+  width: 1920px;
+  height: 100px;
+  background: url(../images/SVG/product_backgroundlogo.svg) no-repeat;
+}
+.event_titlebox::before {
+  content: "";
+  display: inline-block;
+  width: 1920px;
+  height: 100px;
+  background: url(../images/SVG/event_backgroundlogo.svg) no-repeat;
+}
+.contact_titlebox::before {
+  content: "";
+  display: inline-block;
+  width: 1920px;
+  height: 100px;
+  background: url(../images/SVG/contact_backgroundlogo.svg) no-repeat;
+}
+.title {
+  font-size: 5rem;
+  color: #2e5c4a;
+  padding: 0 0 0.5em 0;
+  text-align: center;
+}
+/*HOMEページ*/
+.main_view {
+  position: relative;
+  max-width: 100%;
+  margin: 100px 0 0;
+}
+.main_logo {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+.logo_slide {
+  font-size: 5rem;
+  color: #5c4c42;
+}
+.main_logo img {
+  width: 300px;
+  height: 100px;
+  margin: 2rem 0;
+}
+.slide img {
+  width: 100%;
+  height: 60vw;
+  object-fit: cover;
+}
+.slick-next,
+.slick-prev {
+  width: 35px;
+  height: 35px;
+  right: 10px;
+  z-index: 110;
+}
+.slick-prev {
+  left: 10px;
+}
+.slick-dots > li:only-child {
+  display: none;
+}
+.concept_section {
+  margin: 150px 0;
+}
+.concept_Content {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+.h3title {
+  color: #2e5c4a;
+  text-align: center;
+  font-size: 4rem;
+  padding: 30px 0;
+}
+.concept_section p {
+  text-align: center;
+  padding: 70px 0 60px 0;
+}
+.concept_message {
+  font-size: 4.5rem;
+  line-height: 1.5;
+}
+.concept_index {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+.product_section {
+  background: #efeeec;
+}
+.product_Content {
+  max-width: 1366px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 50px 0 20px;
+}
+.product_Slide {
+  width: 80%;
+  margin: 0 auto;
+}
+.product_Slide li {
+  margin: 3rem 0;
+}
+.product_Slide a {
+  font-size: 3rem;
+  color: black;
+}
+.product_Slide a:hover {
+  filter: brightness(50%);
+}
+.product_Slide a img {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+.product_Slide a span {
+  display: block;
+  margin: 1em 0;
+}
+.slide-arrow {
+  bottom: 0;
+  cursor: pointer;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}
+.prev-arrow {
+  left: -40px;
+}
+.next-arrow {
+  right: -40px;
+}
+.hero_btn {
+  display: inline-block;
+  background: #2e5c4a;
+  padding: 0.5em;
+  border: 1px solid #2e5c4a;
+  width: 120px;
+  text-align: center;
+  color: #e5e0d9;
+  margin: 50px 0;
+}
+.hero_btn:hover {
+  background-color: #c7887f;
+  border: #c7887f 1px solid;
+  margin-left: 20px;
+  transition-property: background-color, border, margin-left;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+  transition-delay: 0ms;
+}
+.event_section {
+  margin: 50px 0 150px;
+}
+.event_Content {
+  max-width: 1366px;
+  text-align: center;
+  margin: 0 auto;
+}
+.banner_Slide {
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem 0;
+}
+.banner_Slide img {
+  width: 80%;
+}
+.banner_Slide a:hover {
+  filter: brightness(50%);
+}
+footer {
+  margin: 50px 0 0;
+}
+.footer_box1 {
+  position: relative;
+  text-align: center;
+  color: black;
+  height: 500px;
+  font-weight: bold;
+}
+.footer_box1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 35%;
+}
+.family_logo {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 3.9px;
+}
+.footer_box2 {
+  background: #2e5c4a;
+  position: relative;
+  color: #e5e0d9;
+  padding: 50px 0 80px 0;
+}
+.footer_box2 img {
+  width: 216px;
+  height: 69px;
+  margin: 10px 3rem;
+}
+.footer_nav {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "areaA areaB"
+    "areaC areaD";
+}
+.footer_nav a {
+  color: #e5e0d9;
+}
+.product_nav a {
+  display: block;
+  margin-bottom: 0.6em;
+}
+.product_nav a span {
+  display: inline-block;
+  padding: 0 0 0.3em;
+  border-bottom: 1px solid #2e5c4a;
+}
+.footer_nav a span:hover {
+  border-bottom: 1px solid #fff;
+}
+.home_nav {
+  grid-area: areaA;
+  padding: 0 0 30px;
+}
+.product_nav {
+  grid-area: areaC;
+}
+.event_nav {
+  grid-area: areaB;
+}
+.contact_nav {
+  grid-area: areaD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  padding: 0.5em;
+  border: 1px solid #fff;
+  width: 150px;
+  height: 50px;
+  color: #2e5c4a;
+  border-radius: 25px;
+}
+.contact_nav:hover {
+  background: #e5e0d9;
+  cursor: pointer;
+}
+.contact_nav a {
+  color: #2e5c4a;
+}
+address {
+  line-height: 1.5;
+  padding: 30px 20px 50px 10px;
+  margin: 0 3em;
+}
+.footer_copyright {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin: 60px 3em 0 3em;
+}
+.footer_privacy {
+  display: flex;
+}
+.footer_privacy p {
+  margin-left: 3rem;
+}
+/*PRODUCTページ*/
+.pen_background,
+.husen_background {
+  background: #efeeec;
+  padding: 2rem 0 4rem 0;
+}
+.pen_box,
+.note_box,
+.husen_box {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+.pen,
+.note,
+.husen {
+  display: flex;
+  justify-content: center;
+}
+.pen_item,
+.note_item,
+.husen_item {
+  max-width: 441px;
+  padding: 1rem 2.5rem 1rem 1rem;
+  position: relative;
+}
+.pen_img,
+.note_img,
+.husen_img {
+  width: 365px;
+  height: 294px;
+  margin: 0 auto;
+}
+.pen_img img,
+.note_img img,
+.husen_img img {
+  width: 100%;
+  height: 100%;
+  padding: 5% 5%;
+}
+.penitemdesc_title,
+.noteitemdesc_title,
+.husenitemdesc_title {
+  color: #2e5c4a;
+  font-size: 3.5rem;
+  border-bottom: 1px solid #707070;
+  text-align: center;
+  padding: 0.5em 0.5em 0.5em 0;
+}
+.penitemdesc_data,
+.noteitemdesc_data,
+.husenitemdesc_data {
+  padding: 5rem 1rem 2rem 1rem;
+  line-height: 1.3;
+}
+.money_name {
+  color: #5c3b27;
+  font-size: 2.5rem;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+}
+.note_background {
+  background: #c1d8cf;
+  padding: 2rem 0 4rem 0;
+}
+.husen_fontsize {
+  font-size: 1.5rem;
+}
+.footer_family {
+  position: relative;
+}
+.footerfamily_logo {
+  width: 30%;
+  position: absolute;
+  top: 20px;
+}
+/*EVENTページ*/
+.pen_campaign,
+.hunassi_event {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 4rem 2em 6rem 2em;
+}
+.event_h3title {
+  color: #2e5c4a;
+  font-size: 3.5rem;
+  text-align: center;
+  border-bottom: #707070 1px solid;
+  padding: 4rem 0;
+}
+.penbanner_img,
+.hunassibanner_img {
+  margin: 8rem 0;
+}
+.penbanner_img img,
+.hunassibanner_img img {
+  width: 100%;
+}
+.penbanner_index {
+  text-align: center;
+  font-size: 2.8rem;
+  padding: 4rem 0;
+  line-height: 1.3;
+}
+.penbanner_detail {
+  padding: 2rem 0 6rem 0;
+  border: #2e5c4a 5px solid;
+  background: #efeeec;
+  margin-top: 8rem;
+  text-align: center;
+}
+.penbannerdetail_title,
+.hunassibannerdetail_title {
+  font-size: 3rem;
+  margin: 1rem 0 3rem 0;
+}
+.penbannerdetailtitle_day {
+  font-weight: bold;
+  color: #de8c0a;
+  font-size: 3rem;
+  margin-bottom: 8rem;
+}
+.penbannerdetailtitle_index {
+  width: 900px;
+  line-height: 3;
+  font-size: 2rem;
+  margin: 0 auto;
+  text-align: left;
+}
+.hunassi_event {
+  padding: 200px 2em 100px 2em;
+}
+.access_Box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+}
+.hunassibannerdetailtitle_date {
+  font-size: 3rem;
+  color: #de8c0a;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+.hunassibannerdetailtitle_index {
+  margin-bottom: 8rem;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.access_map {
+  width: 50%;
+}
+.access_map iframe {
+  width: 100%;
+}
+
+/*CONTACTページ*/
+.contact_box {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2em 5em 2em;
+}
+.contact_index {
+  padding: 8rem 0;
+  font-size: 2rem;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+.form_explain {
+  color: red;
+}
+.form-label {
+  display: block;
+  margin: 35px 0;
+}
+input {
+  width: 100%;
+  height: 3em;
+}
+textarea {
+  width: 100%;
+  height: 15em;
+}
+.check_input {
+  width: 2em;
+}
+.pricvacy_check {
+  margin: 35px 0;
+  text-align: center;
+}
+.submit_Btn {
+  text-align: center;
+}
+.submit_button {
+  width: 10em;
+  background: #2e5c4a;
+  color: #e5e0d9;
+  border: #2e5c4a 1px solid;
+}
+/*スマホページ*/
+@media screen and (max-width: 1000px) {
+  /*HOMEページ*/
+  .banner_Slide {
+    display: block;
+  }
+  .bannerSlide_img2 {
+    display: block;
+    margin-top: 5em;
+  }
+  .family_logo {
+    font-size: 2.5rem;
+  }
+  .footer_box2 img {
+    display: block;
+    margin: 0 auto;
+  }
+  .footer_nav {
+    display: block;
+    right: 50px;
+    top: 200px;
+  }
+  .home_nav,
+  .product_nav,
+  .event_nav {
+    display: none;
+  }
+  .contact_nav {
+    margin: 1em;
+  }
+  address {
+    margin-top: 2em;
+  }
+  .footer_copyright {
+    display: block;
+  }
+  .footer_copyright p {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .footer_privacy {
+    justify-content: center;
+  }
+  /*PRODUCTページ*/
+  .pen,
+  .note,
+  .husen {
+    display: block;
+  }
+  .pen_item,
+  .note_item,
+  .husen_item {
+    max-width: 900px;
+    display: flex;
+  }
+  .pen_img,
+  .note_img,
+  .husen_img {
+    width: 265px;
+    height: 194px;
+    margin: 0;
+    align-self: center;
+  }
+  .pen_img img,
+  .note_img img,
+  .husen_img img {
+    width: 265px;
+    height: 194px;
+  }
+  .penitem_desc,
+  .noteitem_desc,
+  .husenitem_desc {
+    padding: 1em 0 0 2em;
+  }
+  .penitemdesc_title,
+  .noteitemdesc_title,
+  .husenitemdesc_title {
+    font-size: 2.5rem;
+    text-align: left;
+    display: inline-block;
+  }
+  .money_name {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 640px) {
+  /*共通NAV*/
+  .h1logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .buy_btn {
+    display: none;
+  }
+  /*共通タイトルページ*/
+  .product_titlebox::before {
+    width: 640px;
+    height: 50px;
+  }
+  .event_titlebox::before {
+    width: 640px;
+    height: 50px;
+  }
+  .contact_titlebox::before {
+    width: 640px;
+    height: 50px;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  /*HOMEページ*/
+  .h1logo img,
+  .main_logo img {
+    width: 160px;
+    height: 50px;
+  }
+  .main_logo {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .logo_slide {
+    font-size: 3.5rem;
+  }
+  .main_view .slide {
+    height: 60vh;
+    display: flex;
+  }
+  .slide img {
+    object-fit: cover;
+    height: 60vh;
+  }
+  .h3title {
+    font-size: 3rem;
+  }
+  .concept_section p {
+    padding: 70px 2em 60px;
+  }
+  .concept_message {
+    font-size: 3rem;
+    line-height: 1.5;
+  }
+  .concept_index {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  .product_Content {
+    padding: 50px 2em 20px;
+  }
+  .product_Slide a {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .footer_box1 {
+    position: relative;
+    text-align: center;
+    color: black;
+    height: 50%;
+    font-weight: bold;
+  }
+  .footer_box1 img {
+    object-position: 70% 35%;
+  }
+  .family_logo {
+    height: 0;
+    top: 40px;
+    left: 10px;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin: 0;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+  }
+  .family_logo span {
+    display: block;
+  }
+  .footer_nav {
+    display: block;
+    top: 50%;
+  }
+  /*PRODUCTページ*/
+  .pen,
+  .note,
+  .husen {
+    display: block;
+  }
+  .pen_item,
+  .note_item,
+  .husen_item {
+    display: block;
+    padding: 3em 0;
+  }
+  .pen_img,
+  .note_img,
+  .husen_img {
+    margin: 0 auto;
+  }
+  .penitem_desc,
+  .noteitem_desc,
+  .husenitem_desc {
+    padding: 1em 0 0 2em;
+    text-align: center;
+  }
+  .penitemdesc_title,
+  .noteitemdesc_title,
+  .husenitemdesc_title {
+    font-size: 2.5rem;
+    vertical-align: center;
+    display: inline-block;
+  }
+  .penitemdesc_data,
+  .noteitemdesc_data,
+  .husenitemdesc_data {
+    text-align: left;
+    padding: 5rem 2rem 2rem 1rem;
+    line-height: 1.6;
+  }
+  .money_name {
+    font-size: 2rem;
+    display: inline-block;
+    padding: 0 1em;
+  }
+  /*EVENTページ*/
+  .event_h3title {
+    font-size: 2.5rem;
+    padding: 2rem 0;
+    line-height: 1.3;
+  }
+  .penbanner_index {
+    text-align: left;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+  .penbannerdetail_title,
+  .hunassibannerdetail_title {
+    font-size: 2rem;
+  }
+  .penbannerdetailtitle_day {
+    font-size: 1.6rem;
+    margin-bottom: 2em;
+  }
+  .penbannerdetailtitle_index {
+    width: 100%;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    margin-bottom: 2em;
+    padding: 0 1em;
+  }
+  .hunassi_event {
+    margin-bottom: 50px;
+  }
+  .access_Box {
+    display: block;
+    text-align: center;
+  }
+  .hunassibannerdetailtitle_date {
+    font-size: 1.6rem;
+  }
+  .hunassibannerdetailtitle_index {
+    font-size: 1.6rem;
+  }
+  .access_map {
+    width: 80%;
+    height: 170px;
+    margin: 0 auto;
+  }
+  .access_map iframe {
+    width: 100%;
+    height: 100%;
+  }
+  /*CONTACTページ*/
+  .contact_index {
+    padding: 8rem 0;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+  }
+}
